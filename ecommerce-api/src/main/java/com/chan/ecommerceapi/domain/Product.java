@@ -41,4 +41,7 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductTag> productTags = new ArrayList<>();
 
+    @OneToOne(mappedBy = "product")
+    private ProductPrice productPrice;
+
 }

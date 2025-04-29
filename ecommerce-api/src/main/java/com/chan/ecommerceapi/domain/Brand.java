@@ -25,7 +25,7 @@ public class Brand {
     private String logoUrl;
     private String website;
 
-    @OneToMany(mappedBy = "brand")
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Product> products = new ArrayList<>();
 }

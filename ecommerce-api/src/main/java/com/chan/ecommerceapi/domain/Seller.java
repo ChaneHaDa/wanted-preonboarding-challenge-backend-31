@@ -28,7 +28,7 @@ public class Seller {
     private String contactPhone;
     private LocalDate createdAt;
 
-    @OneToMany(mappedBy = "seller")
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Product> products = new ArrayList<>();
 }

@@ -26,10 +26,12 @@ public class Product {
     private LocalDate updatedAt;
     private String status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "seller_id")
     private Seller seller;
 
 }

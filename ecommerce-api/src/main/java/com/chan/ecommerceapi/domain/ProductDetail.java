@@ -16,11 +16,13 @@ public class ProductDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String weight;
-    private String dimension;
+    @Column(columnDefinition = "json")
+    private String dimensions;
     private String materials;
     private String countryOfOrigin;
     private String warrantyInfo;
     private String careInstructions;
+    @Column(columnDefinition = "jsonb")
     private String additionalInfo;
 
     @OneToOne

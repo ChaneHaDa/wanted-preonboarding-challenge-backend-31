@@ -27,4 +27,7 @@ public class Review {
     @ManyToOne
     @JoinColumn(name="product_id")
     private Product product;
+
+    // user-id 추후 추가 예정
+    private Long userId;
 }

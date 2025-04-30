@@ -15,7 +15,7 @@ public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private boolean isPrimary;
+    private Boolean isPrimary;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

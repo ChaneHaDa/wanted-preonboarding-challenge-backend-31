@@ -25,7 +25,7 @@ public class ProductOption {
     private String displayOrder;
 
     @ManyToOne
-    @JoinColumn(name="product_option_group_id")
+    @JoinColumn(name="option_group_id")
     private ProductOptionGroup productOptionGroup;
 
     @OneToMany(mappedBy = "productOption")

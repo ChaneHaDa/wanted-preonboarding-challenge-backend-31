@@ -19,9 +19,6 @@ public class ProductOptionGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer additionalPrice;
-    private String sku;
-    private Integer stock;
     private String displayOrder;
 
     @OneToMany(mappedBy = "productOptionGroup")

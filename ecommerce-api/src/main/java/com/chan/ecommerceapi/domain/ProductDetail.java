@@ -15,7 +15,6 @@ public class ProductDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String weight;
     private String dimension;
     private String materials;

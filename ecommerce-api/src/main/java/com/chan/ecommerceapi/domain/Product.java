@@ -56,4 +56,7 @@ public class Product {
     @Builder.Default
     private List<Review> reviews  = new ArrayList<>();
 
+    @OneToOne(mappedBy = "product")
+    private ProductDetail productDetail;
+
 }

@@ -44,4 +44,8 @@ public class Product {
     @OneToOne(mappedBy = "product")
     private ProductPrice productPrice;
 
+    @OneToMany(mappedBy = "product")
+    @Builder.Default
+    private List<ProductOptionGroup> productOptionGroups = new ArrayList<>();
+
 }

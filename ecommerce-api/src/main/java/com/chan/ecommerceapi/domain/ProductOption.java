@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @Builder
@@ -24,4 +27,8 @@ public class ProductOption {
     @ManyToOne
     @JoinColumn(name="product_option_group_id")
     private ProductOptionGroup productOptionGroup;
+
+    @OneToMany(mappedBy = "productOption")
+    @Builder.Default
+    private List<ProductImage> productImage = new ArrayList<>();
 }

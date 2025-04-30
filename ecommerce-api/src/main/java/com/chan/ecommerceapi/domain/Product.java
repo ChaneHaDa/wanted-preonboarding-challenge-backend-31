@@ -48,4 +48,12 @@ public class Product {
     @Builder.Default
     private List<ProductOptionGroup> productOptionGroups = new ArrayList<>();
 
+    @OneToMany(mappedBy = "product")
+    @Builder.Default
+    private List<ProductImage> productImages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product")
+    @Builder.Default
+    private List<Review> reviews  = new ArrayList<>();
+
 }

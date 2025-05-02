@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,16 +16,24 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(name = "sellers")
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 100)
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String description;
+    @Column(length = 255)
     private String logoUrl;
-    private Float rating;
+    @Column(precision = 3, scale = 2)
+    private BigDecimal rating;
+    @Column(length = 100)
     private String contactEmail;
+    @Column(length = 20)
     private String contactPhone;
+    @Column(name = "created_at", updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDate createdAt;
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)

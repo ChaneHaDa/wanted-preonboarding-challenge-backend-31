@@ -11,14 +11,19 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(name = "product_images")
 public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 100)
     private String url;
+    @Column(length = 255)
     private String altText;
-    private Boolean isPrimary;
-    private String displayOrder;
+    @Builder.Default
+    private Boolean isPrimary  = false;
+    @Builder.Default
+    private Integer displayOrder  = 0;
 
     @ManyToOne
     @JoinColumn(name="product_id")

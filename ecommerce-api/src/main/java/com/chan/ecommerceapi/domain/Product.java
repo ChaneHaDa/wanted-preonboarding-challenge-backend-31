@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +15,24 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 255)
     private String name;
+    @Column(nullable = false, length = 255, unique = true)
     private String slug;
+    @Column(name = "short_description", length = 500)
     private String shortDescription;
+    @Column(name = "full_description", columnDefinition = "TEXT")
     private String fullDescription;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    @Column(name = "created_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime updatedAt;
+    @Column(length = 20, nullable = false)
     private String status;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

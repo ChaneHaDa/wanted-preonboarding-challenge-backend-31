@@ -6,28 +6,38 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(name = "reviews")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String rating;
+    @Column(nullable = false)
+    private Integer rating;
+    @Column(length = 255)
+    private String title;
+    @Column(columnDefinition = "TEXT")
     private String content;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
-    private String verifiedPurchase;
-    private String helpfulVotes;
+    @Column(name = "created_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime createdAt;
+    @Column(name = "updated_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private LocalDateTime updatedAt;
+    @Builder.Default
+    private Boolean verifiedPurchase  = false;
+    @Builder.Default
+    private Integer helpfulVotes = 0;
 
     @ManyToOne
     @JoinColumn(name="product_id")
     private Product product;
 
-    // user-id 추후 추가 예정
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 }

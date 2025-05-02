@@ -11,11 +11,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Entity
+@Table(name = "product_categories")
 public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Boolean isPrimary;
+    @Builder.Default
+    private Boolean isPrimary = false;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

@@ -28,9 +28,7 @@ public class Product {
     private String shortDescription;
     @Column(name = "full_description", columnDefinition = "TEXT")
     private String fullDescription;
-    @Column(name = "created_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
-    @Column(name = "updated_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedAt;
     @Column(length = 20, nullable = false)
     private String status;
@@ -44,9 +42,11 @@ public class Product {
     private Seller seller;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<ProductCategory> productCategorys = new ArrayList<>();
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<ProductTag> productTags = new ArrayList<>();
 
     @OneToOne(mappedBy = "product")

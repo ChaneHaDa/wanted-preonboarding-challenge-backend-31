@@ -26,7 +26,6 @@ public class User {
     private String email;
     @Column(length = 255)
     private String avatarUrl;
-    @Column(insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "user")

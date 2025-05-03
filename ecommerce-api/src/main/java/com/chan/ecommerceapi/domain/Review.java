@@ -24,9 +24,7 @@ public class Review {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String content;
-    @Column(name = "created_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime createdAt;
-    @Column(name = "updated_at", insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedAt;
     @Builder.Default
     private Boolean verifiedPurchase  = false;

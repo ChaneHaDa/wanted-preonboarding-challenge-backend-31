@@ -25,5 +25,6 @@ public class Tag {
     private String slug;
 
     @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<ProductTag> productTags = new ArrayList<>();
 }

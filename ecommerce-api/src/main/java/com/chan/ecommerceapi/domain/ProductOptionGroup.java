@@ -26,6 +26,7 @@ public class ProductOptionGroup {
     private Integer displayOrder = 0;
 
     @OneToMany(mappedBy = "productOptionGroup")
+    @Builder.Default
     private List<ProductOption> productOptions = new ArrayList<>();
 
     @ManyToOne

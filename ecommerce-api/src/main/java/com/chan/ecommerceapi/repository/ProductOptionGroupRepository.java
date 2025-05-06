@@ -1,7 +1,8 @@
 package com.chan.ecommerceapi.repository;
 
-import com.chan.ecommerceapi.domain.ProductOptionGroup;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.chan.ecommerceapi.domain.ProductOptionGroup;
 
 public interface ProductOptionGroupRepository extends JpaRepository<ProductOptionGroup, Long> {
 }

@@ -1,7 +1,8 @@
 package com.chan.ecommerceapi.repository;
 
-import com.chan.ecommerceapi.domain.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.chan.ecommerceapi.domain.Brand;
 
 public interface BrandRepository extends JpaRepository<Brand, Long> {
 }
